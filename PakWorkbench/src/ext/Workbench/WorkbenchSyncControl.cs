@@ -172,6 +172,7 @@ public sealed partial class WorkbenchSyncControl : UserControl
 	private string? _lastLoggedJumpFile;
 	private int _lastLoggedJumpLine = -1;
 	private int _lastLoggedJumpColumn = -1;
+	private int _lastHoveredLogLine = -1;
 
 	// Hybrid Jump Registry
 	private readonly EditorProviderRegistry _jumpRegistry = new(new FallbackJumpProvider());
@@ -417,8 +418,36 @@ public sealed partial class WorkbenchSyncControl : UserControl
 		_previewController.Initialize();
 		_previewController.ConfigureForSyncLog();
 
-		if (_previewController.UIControl is XFusion xfInstance)
+		_syncToolTip.OwnerDraw = true;
+		_syncToolTip.BackColor = UITheme.BgDarker;
+		_syncToolTip.ForeColor = UITheme.TextMain;
+
+		_syncToolTip.Popup += (s, e) =>
 		{
+			e.ToolTipSize = Size.Add(TextRenderer.MeasureText(_syncToolTip.GetToolTip(e.AssociatedControl), UITheme.MainFont), new Size(12, 10));
+		};
+
+        _syncToolTip.Draw += (s, e) =>
+        {
+            e.Graphics.FillRectangle(new SolidBrush(UITheme.BgDarker), e.Bounds);
+            e.Graphics.DrawRectangle(new Pen(UITheme.BgSelected), 0, 0, e.Bounds.Width - 1, e.Bounds.Height - 1);
+
+            Rectangle textBounds = new(e.Bounds.X + 6, e.Bounds.Y + 3, e.Bounds.Width - 12, e.Bounds.Height - 6);
+
+            TextRenderer.DrawText(
+                e.Graphics,
+                e.ToolTipText,
+                UITheme.MainFont,
+                textBounds,
+                UITheme.TextMain,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Left
+            );
+        };
+
+        if (_previewController.UIControl is XFusion xfInstance)
+		{
+			xfInstance.WordWrap = true;
+
 			xfInstance.HighlightTextInsteadOfBackground = true;
 			xfInstance.TopMargin = 8;
 			xfInstance.BottomMargin = 4;
@@ -427,6 +456,7 @@ public sealed partial class WorkbenchSyncControl : UserControl
 			{
 				xfInstance.GetLocationFromPoint(e.X, e.Y, out int lineIndex, out int charIdx);
 				bool isOverHighlight = false;
+				string? toolTipPath = null;
 
 				if (lineIndex >= 0)
 				{
@@ -445,6 +475,12 @@ public sealed partial class WorkbenchSyncControl : UserControl
 								if (charIdx >= match.Index && charIdx < match.Index + match.Length)
 								{
 									isOverHighlight = true;
+
+									if (EnfusionScriptErrorRegex().Match(lineText) is { Success: true } enfMatch)
+									{
+										string parsedFile = enfMatch.Groups["file"].Value;
+										toolTipPath = ResolveFilePath(parsedFile);
+									}
 								}
 							}
 						}
@@ -453,6 +489,32 @@ public sealed partial class WorkbenchSyncControl : UserControl
 				}
 
 				xfInstance.Cursor = isOverHighlight ? Cursors.Hand : Cursors.Default;
+
+				if (isOverHighlight && !string.IsNullOrEmpty(toolTipPath))
+				{
+					if (_lastHoveredLogLine != lineIndex)
+					{
+						_lastHoveredLogLine = lineIndex;
+						_syncToolTip.Show($"Full path:\n{toolTipPath}", xfInstance, e.X + 15, e.Y + 15, 4000);
+					}
+				}
+				else
+				{
+					if (_lastHoveredLogLine != -1)
+					{
+						_syncToolTip.Hide(xfInstance);
+						_lastHoveredLogLine = -1;
+					}
+				}
+			};
+
+			xfInstance.MouseLeave += (s, e) =>
+			{
+				if (_lastHoveredLogLine != -1)
+				{
+					_syncToolTip.Hide(xfInstance);
+					_lastHoveredLogLine = -1;
+				}
 			};
 
 			xfInstance.MouseClick += (s, e) =>
@@ -1340,7 +1402,9 @@ public sealed partial class WorkbenchSyncControl : UserControl
 						string errorMsg = item.TryGetProperty("error", out var e) ? e.GetString() ?? "Unknown issue" : "Unknown issue";
 						int line = item.TryGetProperty("line", out var l) ? l.GetInt32() : 0;
 
-						formattedLog.AppendLine($"{prefix} @\"{fileAbs},{line}\": {errorMsg}");
+						string displayPath = !string.IsNullOrWhiteSpace(file) ? file : fileAbs;
+
+						formattedLog.AppendLine($"{prefix} @\"{displayPath},{line}\": {errorMsg}");
 						issueCount++;
 					}
 				}
