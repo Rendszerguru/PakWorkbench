@@ -14,9 +14,10 @@
 
 <p align="center">
   <a href="https://github.com/Rendszerguru/PakWorkbench/releases"><img src="https://img.shields.io/badge/Release-v1.0.0-blue?style=for-the-badge&logo=github" alt="Release" /></a>
-  <img src="https://img.shields.io/badge/Engine-Enfusion-orange?style=for-the-badge" alt="Engine" />
-  <img src="https://img.shields.io/badge/Framework-.NET%208.0-512BD4?style=for-the-badge&logo=dotnet" alt=".NET 8.0" />
-  <img src="https://img.shields.io/badge/Platform-Windows%2010%2F11-0078D6?style=for-the-badge&logo=windows" alt="Platform" />
+  <a href="https://www.bohemia.net/games/arma-reforger"><img src="https://img.shields.io/badge/Engine-Enfusion-orange?style=for-the-badge" alt="Engine" /></a>
+  <a href="https://dotnet.microsoft.com/"><img src="https://img.shields.io/badge/Framework-.NET%208.0-512BD4?style=for-the-badge&logo=dotnet" alt=".NET 8.0" /></a>
+  <a href="https://www.microsoft.com/windows"><img src="https://img.shields.io/badge/Platform-Windows%2010%2F11-0078D6?style=for-the-badge&logo=windows" alt="Platform" /></a>
+  <a href="https://modiscover.eu"><img src="https://img.shields.io/badge/MoDiscover-Integrated-purple?style=for-the-badge" alt="MoDiscover" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MPL--2.0-green?style=for-the-badge" alt="License" /></a>
 </p>
 
