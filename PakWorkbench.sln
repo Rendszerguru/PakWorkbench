@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PakWorkbench", "PakWorkbench\PakWorkbench.csproj", "{2603179E-46CD-4029-811C-6C26BA565EEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2603179E-46CD-4029-811C-6C26BA565EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2603179E-46CD-4029-811C-6C26BA565EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2603179E-46CD-4029-811C-6C26BA565EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2603179E-46CD-4029-811C-6C26BA565EEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {309D0118-8C3A-4F2E-9F6E-C0F213A41830}
+	EndGlobalSection
+EndGlobal
