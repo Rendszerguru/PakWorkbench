@@ -508,7 +508,11 @@ namespace PakWorkbench.src.ext
 			modiscoverViewPanel = new Panel { Dock = DockStyle.Fill, Visible = false };
 			modiscoverControl = new MoDiscoverControl { Dock = DockStyle.Fill };
 			modiscoverViewPanel.Controls.Add(modiscoverControl);
-			modiscoverControl.Initialize(this, sidebarPanel, btnNavWorkbenchSync, treeView, btnNavMoDiscover);
+
+			this.Load += (s, e) =>
+			{
+				modiscoverControl.Initialize(this, sidebarPanel, btnNavWorkbenchSync, treeView, btnNavMoDiscover);
+			};
 
 			workbenchSyncViewPanel = new Panel { Dock = DockStyle.Fill, Visible = false };
 			workbenchSyncControl = new WorkbenchSyncControl { Dock = DockStyle.Fill };
