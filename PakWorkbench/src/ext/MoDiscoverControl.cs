@@ -346,6 +346,8 @@ namespace PakWorkbench.src.ext
 
 		public void BtnViewDependencies_Click(object? sender, EventArgs e)
 		{
+			if (_treeView == null || _viewerForm == null) return;
+
 			var selectedNode = _treeView.SelectedNode;
 			if (selectedNode == null || selectedNode.Parent != null) return;
 
