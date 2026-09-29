@@ -108,6 +108,7 @@ Rather than acting as a conventional package extractor or an asset editor, PakWo
 
 * **Integrated Browser Experience:** Access the `modiscover.eu` platform directly through a dedicated integrated panel inside PakWorkbench.
 * **One-Click Dependency Analysis:** Right-click a mod's root node and use **View Dependencies / Graph** to analyze its external project dependencies.
+* *Special thanks to **¼Sebi** for creating the MoDiscover web interface and allowing its integration into PakWorkbench!*
 
 ---
 
