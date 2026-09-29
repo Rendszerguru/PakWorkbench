@@ -154,7 +154,7 @@ PakWorkbench.exe extract data.pak
 PakWorkbench.exe extract data.pak --output "D:\Extracted"
 
 # Extract a specific file from the archive
-PakWorkbench.exe extract data.pak --file "scripts/Game/Component.c"
+PakWorkbench.exe extract data.pak --file "scripts\Game\Component.c"
 ```
 
 ### 📦 Batch Processing
