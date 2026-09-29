@@ -31,6 +31,12 @@
 
 ---
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ba7d345d-5aca-426c-a4a8-427bac1a4e0b" alt="PakWorkbench Interface Preview" width="100%" />
+</p>
+
+---
+
 ## ⚡ What is PakWorkbench?
 
 **PakWorkbench** is a modern analysis and support workstation built specifically **for Arma Reforger**, designed to let you rapidly explore, inspect, analyze, and extract the contents of `.pak` files without first unpacking entire archives to disk.
