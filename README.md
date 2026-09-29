@@ -206,7 +206,7 @@ The **PakWorkbench** name, logo, and visual identity are not covered by the MPL-
 ---
 
 <p align="center">
-  <b>🚀 PakWorkbench</b>
+  <b><sub><img src="https://github.com/user-attachments/assets/e17a1531-d059-40e5-bf9e-a608e3b20383" alt="PakWorkbench Logo" width="18" height="18"></sub> PakWorkbench</b>
 </p>
 
 <p align="center">
