@@ -1106,7 +1106,7 @@ namespace PakWorkbench.src.ext.Enfusion
 							<option value='grid'>Grid</option>
 						</select>
 
-						<button onclick='runLayout()' class='icon-btn' style='width:24px; height:24px; margin-left:4px;' title='Relayout (Újrarendezés)'>♻</button>
+						<button onclick='runLayout()' class='icon-btn' style='width:24px; height:24px; margin-left:4px;' title='Relayout'>♻</button>
 					</div>
 
 					<div class='divider'></div>
