@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/images/hero_cinematic.gif" alt="PakWorkbench Banner" width="100%" />
-</p>
-
 <h1 align="center"><sub><img src="https://github.com/user-attachments/assets/e17a1531-d059-40e5-bf9e-a608e3b20383" alt="PakWorkbench Logo" width="48" height="48"></sub> PakWorkbench</h1>
 
 <p align="center">
