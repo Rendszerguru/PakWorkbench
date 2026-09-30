@@ -58,6 +58,20 @@ Rather than acting as a conventional package extractor or an asset editor, PakWo
 
 ---
 
+### 🖱 Context Menu Actions (Right-Click Controls)
+
+PakWorkbench provides a rich set of right-click context menu options across the Asset Browser tree for fast workflows:
+
+* 🎯 **Set as Workbench Sync Target:** Mark a script (`.c`) or file to automatically synchronize with your active Arma Reforger Workbench project.
+* 🛠 **Open in Workbench:** Instantly open supported Enfusion assets (`.xob`, `.edds`, `.anm`, `.c`, `.et`) directly in Arma Reforger Workbench.
+* 📑 **Compare file... / Compare folder...:** Diff a selected asset or whole directory directly against a local disk equivalent.
+* 🕸 **View Dependencies / Graph:** Launch the interactive dependency graph directly from the package root node to map all asset relationships.
+* 📦 **Extract Selected / Extract All:** Quickly unpack only the highlighted item/folder or extract the entire archive structure.
+* 📂 **Expand & Collapse Controls:** Rapidly expand/collapse individual nodes or the entire tree hierarchy (`Expand Selected Node`, `Collapse Selected Node`, `Expand All`, `Collapse All`).
+* ❌ **Remove from Session:** Unload a mod or package directly from the current workspace session.
+
+---
+
 ### 🧾 Diff Workspace
 
 * **PAK ↔ DISK Comparison:** Compare original assets contained inside a `.pak` archive directly against modified versions on disk.
